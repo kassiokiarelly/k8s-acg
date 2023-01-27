@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cat containerd.conf | tee /etc/modules-load.d/containerd.conf | xargs modprobe
+cat kernel-modules.conf | tee /etc/modules-load.d/containerd.conf | xargs modprobe
 cat kubernetes-cri.conf | tee /etc/sysctl.d/99-kubernetes-cri.conf
 sysctl --system
 apt-get update && apt-get install -y containerd curl apt-transport-https
