@@ -13,6 +13,7 @@ cat kernel-modules.conf | sudo tee /etc/modules-load.d/containerd.conf | sudo xa
 cat kubernetes-cri.conf | sudo tee /etc/sysctl.d/99-kubernetes-cri.conf
 sudo sysctl --system
 
+sudo mv /etc/containerd/config.toml /etc/containerd/config.toml.bkp
 sudo systemctl restart containerd
 sudo swapoff -a
 
